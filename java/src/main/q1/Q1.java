@@ -1,3 +1,5 @@
+package q1;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,8 +17,9 @@ public class Q1 {
         }
     }
 
-    private static List<Interval> uncoveredIntervals(List<Q1.Interval> intervals) {
+    static List<Interval> uncoveredIntervals(List<Q1.Interval> intervals) {
         List<Interval> uncovered = new ArrayList<Q1.Interval>();
+
         // Your code here
         return uncovered;
     }
@@ -39,7 +42,7 @@ public class Q1 {
         final String[] tokenizedInterval = line.split(" ");
 
         return new Interval(Integer.valueOf(tokenizedInterval[0]),
-                            Integer.valueOf(tokenizedInterval[1]));
+                Integer.valueOf(tokenizedInterval[1]));
     }
 
     public static void main(String... args) throws IOException {

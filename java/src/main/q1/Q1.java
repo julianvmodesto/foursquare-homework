@@ -4,16 +4,39 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Q1 {
     static class Interval {
         int start;
         int end;
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+
+            Interval interval = (Interval) o;
+
+            if (start != interval.start) return false;
+            return end == interval.end;
+        }
+
+        @Override
+        public int hashCode() {
+            int result = start;
+            result = 31 * result + end;
+            return result;
+        }
+
         public Interval(int start, int end) {
             this.start = start;
             this.end = end;
+        }
+
+        @Override
+        public String toString() {
+            return start + " " + end;
         }
     }
 
@@ -21,6 +44,31 @@ public class Q1 {
         List<Interval> uncovered = new ArrayList<Q1.Interval>();
 
         // Your code here
+
+        // O(log n)
+        intervals.sort(Comparator.comparingInt(a -> a.end));
+
+        // O(n)
+        Map<Integer, Boolean> ends = new HashMap<>();
+        for (Interval covered : intervals) {
+            ends.put(covered.start, true);
+        }
+
+        // O(n)
+        boolean processedFirst = false;
+        int lastEnd = -1;
+        for (Interval current : intervals) {
+            if (processedFirst) {
+                if (lastEnd < current.start) {
+                    if (!ends.containsKey(lastEnd)) {
+                        uncovered.add(new Interval(lastEnd, current.start));
+                    }
+                }
+            }
+            processedFirst = true;
+            lastEnd = current.end;
+        }
+
         return uncovered;
     }
 

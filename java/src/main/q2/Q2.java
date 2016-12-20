@@ -8,6 +8,7 @@ import java.util.Map;
 
 public class Q2 {
 
+    // n = the number of components in the request path
     static List<String> routeAll(List<Route> routes, List<String> paths) {
         List<String> endpoints = new ArrayList<String>();
         // Your code here
@@ -35,15 +36,17 @@ public class Q2 {
                         break;
                     }
 
-                    String[] dynamicRoutePaths = dynamicRoute.path.split("/");
+                    // n = the number of components in the request path
                     String[] pathParts = path.split("/");
+                    String[] dynamicRoutePaths = dynamicRoute.path.split("/");
 
-                    if (dynamicRoutePaths.length == pathParts.length) {
-                        for (int i = 0; i < dynamicRoutePaths.length; i++) {
-                            if (!dynamicRoutePaths[i].equals(pathParts[i]) && !dynamicRoutePaths[i].equals("X")) {
+                    if (pathParts.length == dynamicRoutePaths.length) {
+                        // O(n)
+                        for (int i = 0; i < pathParts.length; i++) {
+                            if (!pathParts[i].equals(dynamicRoutePaths[i]) && !dynamicRoutePaths[i].equals("X")) {
                                 break;
                             }
-                            if (i == dynamicRoutePaths.length - 1) {
+                            if (i == pathParts.length - 1) {
                                 isFound = true;
                                 endpoints.add(dynamicRoute.endpoint);
                             }

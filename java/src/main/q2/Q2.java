@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Q2 {
 
-    private static List<String> routeAll(List<Route> routes, List<String> paths) {
+    static List<String> routeAll(List<Route> routes, List<String> paths) {
         List<String> endpoints = new ArrayList<String>();
         // Your code here
         return endpoints;

@@ -1,7 +1,7 @@
 package q1;
 
 import org.hamcrest.core.IsCollectionContaining;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
-class Q1Test {
+public class Q1Test {
     @Test
     public void canGetUncoveredIntervals() throws Exception {
         List<Q1.Interval> input = Arrays.asList(

@@ -45,7 +45,7 @@ public class Q1 {
 
         // Your code here
 
-        // O(log n)
+        // O(n * log n)
         intervals.sort(Comparator.comparingInt(a -> a.end));
 
         // O(n)

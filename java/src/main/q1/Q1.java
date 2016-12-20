@@ -40,12 +40,11 @@ public class Q1 {
         }
     }
 
+    // n = number of covered intervals
     static List<Interval> uncoveredIntervals(List<Q1.Interval> intervals) {
         List<Interval> uncovered = new ArrayList<Q1.Interval>();
 
-        // Your code here
-
-        // O(n * log n)
+        // O(n * log(n))
         intervals.sort(Comparator.comparingInt(a -> a.end));
 
         // O(n)

@@ -22,7 +22,7 @@ public class Q2Test {
                 new Q2.Route("/user/X/lists/X", "userListIdEndpoint"),
                 new Q2.Route("/X/friends", "userFriendsEndpoint"),
                 new Q2.Route("/X/lists", "userListsEndpoint"),
-                new Q2.Route("/settings", "settingsEndpoint ")
+                new Q2.Route("/settings", "settingsEndpoint")
         );
         List<String> paths = Arrays.asList(
                 "/",

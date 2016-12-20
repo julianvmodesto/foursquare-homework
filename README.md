@@ -1,4 +1,4 @@
-Foursquare Engineering Take-Home Exercise
+# Foursquare Engineering Take-Home Exercise
 
 Hi! We’re excited that you’re interested in coming to work with us. Below you’ll
 find a few exercises that will help us get acquainted with your skills and
@@ -18,7 +18,7 @@ name or other self-identifiers in any of your files.
 
 Good luck!
 
-Question One
+## Question One
 
 Estimated time: 45-60 minutes
 
@@ -48,7 +48,7 @@ any trade-offs or assumptions you made in your design, and an analysis of its
 running time (hint: you can do better than O(n2), where n is the number of input
 lines). Please do not include any debugging output.
 
-Question Two
+## Question Two
 
 Estimated time: 90-120 minutes
 
@@ -68,11 +68,19 @@ patterns, one per line, each followed by a space and a string token (taken to
 represent the name of the method that handles that endpoint). Path patterns may
 contain wildcards, denoted by an X. Here is a sample configuration file:
 
-/ rootEndpoint /user userRootEndpoint /user/friends userFriendsEndpoint
-/user/lists userListsEndpoint /user/X userEndpoint /user/X/friends
-userFriendsEndpoint /user/X/lists userListsEndpoint /user/X/lists/X
-userListIdEndpoint /X/friends userFriendsEndpoint /X/lists userListsEndpoint
+```
+/ rootEndpoint
+/user userRootEndpoint
+/user/friends userFriendsEndpoint
+/user/lists userListsEndpoint
+/user/X userEndpoint
+/user/X/friends userFriendsEndpoint
+/user/X/lists userListsEndpoint
+/user/X/lists/X userListIdEndpoint
+/X/friends userFriendsEndpoint
+/X/lists userListsEndpoint
 /settings settingsEndpoint
+```
 
 The program should read request paths from STDIN, one per line, and should write
 the name of the method corresponding to the matching pattern to STDOUT. If
@@ -82,14 +90,33 @@ not include any error or debugging output.
 
 For example, given the above configuration and the following input
 
-/ /user /user/friends /user/123 /user/123/friends /user/123/friends/zzz
-/user/friends/friends /abc/lists /settings /aaa/bbb
+```
+/
+/user
+/user/friends
+/user/123
+/user/123/friends
+/user/123/friends/zzz
+/user/friends/friends
+/abc/lists
+/settings
+/aaa/bbb
+```
 
 your program should output
 
-rootEndpoint userRootEndpoint userFriendsEndpoint userEndpoint
-userFriendsEndpoint 404 userFriendsEndpoint userListsEndpoint settingsEndpoint
+```
+rootEndpoint
+userRootEndpoint
+userFriendsEndpoint
+userEndpoint
+userFriendsEndpoint
 404
+userFriendsEndpoint
+userListsEndpoint
+settingsEndpoint
+404
+```
 
 In other words, if the configuration file is called config.txt and the sample
 input is in a file called in.txt, then invoking
@@ -112,7 +139,7 @@ any trade-offs or assumptions you made in your design, and an analysis of its
 time and space complexity.
 
 
-Question Three
+## Question Three
 
 Estimated time: 45-60 minutes
 
@@ -156,10 +183,3 @@ via sharding), how is that done?  Scalability / Availability — If you are goin
 to have multiple servers in your service, describe how you will distribute work
 between them. What would happen if you suddenly had 100x more requests? What
 would occur if one or more servers failed (in whatever way they could fail)?
-
-
-
-
-
-
-
